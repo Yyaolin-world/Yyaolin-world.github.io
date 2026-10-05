@@ -1,0 +1,12 @@
+title: Yyaolin 的博客
+description: 具身智能 / 机器人 / 折腾记录
+author: Yyaolin
+theme: minima
+lang: zh-CN
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+minima:
+  date_format: "%Y-%m-%d"
