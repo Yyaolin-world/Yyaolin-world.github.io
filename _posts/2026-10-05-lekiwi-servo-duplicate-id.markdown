@@ -28,7 +28,7 @@ Full found motor list(id: model number):
 ## 二、排查过程与解决方法
 
 根据树莓派的报错，我们发现通讯不到机械臂的舵机，我阅读了<https://tcnppips4y7o.feishu.cn/wiki/UcHpwkzMfiJuZ6knkNNcWTtznic> 的文档，排除掉电源连接后推测应该是舵机编号出了问题。于是我们采用飞特软件来排查。
-（飞特软件下载：https://gitee.com/ftservo/fddebug 下载这个FD1.9.8.5(250729).7z）
+（飞特软件下载：<https://gitee.com/ftservo/fddebug> 下载这个FD1.9.8.5(250729).7z）
 
 ### 具体操作
 
