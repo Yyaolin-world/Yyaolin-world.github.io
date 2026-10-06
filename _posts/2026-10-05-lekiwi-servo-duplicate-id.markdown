@@ -36,30 +36,38 @@ Full found motor list(id: model number):
 
 1. 断电，把舵机从机械臂上逐个拆下来。
 2. 每次**只接一颗**舵机到调试板上。
-（以下图片以3号舵机的排查过程为例）
 
-![单颗舵机接到调试板上](/images/lekiwi-servo-duplicate-id/single-servo-wiring.jpg)
+   （以下图片以3号舵机的排查过程为例）
 
-<p style="font-weight: bold; font-size: 1.3em;">特别注意！！！需要把3号和4号的连线断开，否则后续飞特会扫描到之后4 5 6号舵机，干扰我们的判断。</p>
+   ![单颗舵机接到调试板上](/images/lekiwi-servo-duplicate-id/single-servo-wiring.jpg)
+
+   <span style="font-weight: bold; font-size: 1.3em;">特别注意！！！需要把3号和4号的连线断开，否则后续飞特会扫描到之后4 5 6号舵机，干扰我们的判断。</span>
 
 3. 调试板 USB 接电脑，打开电源，打开飞特官方上位机 FD 1.9.8.5 (250729)。
 4. 选择串口号，设置波特率为 1000000，打开串口。
-![选择串口号并设置波特率](/images/lekiwi-servo-duplicate-id/port-and-baudrate.png)
+
+   ![选择串口号并设置波特率](/images/lekiwi-servo-duplicate-id/port-and-baudrate.png)
+
 5. 点击打开，再点击搜索 / 读取舵机 ID，记录这一颗的实际 ID，校验是否为相应的舵机id。
- 通过校验，我们发现本应该是3号id却被设置成了5号id，这也导致我们这次的问题的发生。
-![上位机读出的 3 号舵机 ID 实际为 5](/images/lekiwi-servo-duplicate-id/wrong-id.png)
-6.修改回正确的id：
-  点击选中id，再点击编程，点击id，将id修改为实际id（此例为3），保存。
-  这样，我们就将id修改为正确的id号了！
-![在上位机中修改舵机 ID](/images/lekiwi-servo-duplicate-id/change-id.png)
 
+   通过校验，我们发现本应该是3号id却被设置成了5号id，这也导致我们这次的问题的发生。
 
-> **注意**：改 ID 的时候，总线上只能接目标这一颗舵机。否则你发一条"把 ID 改成 2"的指令，线上其它舵机也可能响应或干扰，改的是谁完全不可控，甚至会把本来正确的舵机一起改坏。
+   ![上位机读出的 3 号舵机 ID 实际为 5](/images/lekiwi-servo-duplicate-id/wrong-id.png)
 
-7.重复上面的步骤，一个一个舵机逐一检查，修正为正确id
+6. 修改回正确的id：
+
+   点击选中id，再点击编程，点击id，将id修改为实际id（此例为3），保存。
+
+   这样，我们就将id修改为正确的id号了！
+
+   ![在上位机中修改舵机 ID](/images/lekiwi-servo-duplicate-id/change-id.png)
+
+   > **注意**：改 ID 的时候，总线上只能接目标这一颗舵机。否则你发一条"把 ID 改成 2"的指令，线上其它舵机也可能响应或干扰，改的是谁完全不可控，甚至会把本来正确的舵机一起改坏。
+
+7. 重复上面的步骤，一个一个舵机逐一检查，修正为正确id
 8. 所有舵机逐一检查后，将所有舵机都接好后扫描一遍，确认 ID 无重复、无缺号，机械臂恢复正常。
 
-![整条总线接好后扫描，ID 无重复](/images/lekiwi-servo-duplicate-id/id-fixed.png)
+   ![整条总线接好后扫描，ID 无重复](/images/lekiwi-servo-duplicate-id/id-fixed.png)
 
 ### 根因：同一总线上出现了重复 ID
 
