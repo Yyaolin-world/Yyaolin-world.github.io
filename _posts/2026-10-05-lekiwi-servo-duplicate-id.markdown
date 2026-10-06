@@ -8,7 +8,7 @@ tags: [LeRobot, LeKiwi, 总线舵机, 树莓派, Feetech, 排查记录]
 
 > **一句话结论**：树莓派连不上 LeKiwi 的机械臂舵机，根因是总线上有两个舵机的 ID 与其它舵机重复——本该是 2 号、3 号的两颗，实际 ID 被设成了 5、6。用飞特上位机把每颗舵机单独接上、逐个改回正确 ID 后恢复正常。
 ps：这个结论针对的是我此次问题的原因
-https://heisenberg-1998.github.io/academic-cv/ 这个文档提供了舵机连不上的各种原因，在阅读我的文章前可以先查看这篇文档来排查自己问题的原因
+https://tcnppips4y7o.feishu.cn/wiki/UcHpwkzMfiJuZ6knkNNcWTtznic 这个文档提供了舵机连不上的各种原因，在阅读我的文章前可以先查看这篇文档来排查自己问题的原因
 
 ## 一、问题：通讯时舵机连不上
 
@@ -27,7 +27,7 @@ Full found motor list(id: model number):
 
 ## 二、排查过程与解决方法
 
-根据树莓派的报错，我们发现通讯不到机械臂的舵机，我阅读了https://heisenberg-1998.github.io/academic-cv/ 的文档，排除掉电源连接后推测应该是舵机编号出了问题。于是我们采用飞特软件来排查。
+根据树莓派的报错，我们发现通讯不到机械臂的舵机，我阅读了https://tcnppips4y7o.feishu.cn/wiki/UcHpwkzMfiJuZ6knkNNcWTtznic 的文档，排除掉电源连接后推测应该是舵机编号出了问题。于是我们采用飞特软件来排查。
 （飞特软件下载：https://gitee.com/ftservo/fddebug 下载这个FD1.9.8.5(250729).7z）
 
 ### 具体操作
